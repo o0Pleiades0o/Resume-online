@@ -1,3 +1,21 @@
+// Add simple mouse movement effect
+document.addEventListener('DOMContentLoaded', function() {
+    const pattern = document.getElementById('tech-lines');
+    let isAnimating = false;
+
+    document.addEventListener('mousemove', (e) => {
+        if (!isAnimating) {
+            window.requestAnimationFrame(() => {
+                const x = (e.clientX / window.innerWidth) * 10;
+                const y = (e.clientY / window.innerHeight) * 10;
+                pattern.setAttribute('patternTransform', `translate(${x},${y})`);
+                isAnimating = false;
+            });
+            isAnimating = true;
+        }
+    });
+});
+
 // navBarScroll
 let lastScroll = 0;
 const header = document.querySelector('.sticky-header');
@@ -30,25 +48,29 @@ const projects = [
         id: 1,
         title: "Gemicipe",
         description: "This is an application that use AI to suggest recipes based on user input with picture.",
-        image: "assets/img/Gemicipe.png"
+        image: "assets/img/Gemicipe.png",
+        link: "https://github.com/o0Pleiades0o/classification-image"
     },
     {
         id: 2,
         title: "Ledger Stacks",
         description: "Ledger Stacks is a application that allows users to create and manage stacks of ledgers.",
-        image: "assets/img/Ledger Stack.png"
+        image: "assets/img/Ledger Stack.png",
+        link: "https://github.com/o0Pleiades0o/ledger_stacks"
     },
     {
         id: 3,
         title: "Washmarine",
         description: "Washmarine is an innovative platform providing eco-friendly solutions for washing and laundry services.",
-        image: "assets/img/Washmarine.png"
+        image: "assets/img/Washmarine.png",
+        link: "https://github.com/o0Pleiades0o/classification-image"
     },
     {
         id: 4,
         title: "Dog Classification",
         description: "Dog Classification is an AI-powered system for identifying dog breeds using TensorFlow.js.",
-        image: "assets/img/Classification.png"
+        image: "assets/img/Classification.png",
+        link: "https://github.com/o0Pleiades0o/classification-image"
     }
 ];
 
@@ -56,13 +78,13 @@ let currentSlide = 0;
 let autoSlideInterval;
 const carousel = document.getElementById('carousel');
 const dotsContainer = document.querySelector('.nav-dots');
-const SLIDE_INTERVAL = 3000; // 3 seconds
+const SLIDE_INTERVAL = 4000;
 
 function createCarouselItem(project) {
     return `
-        <div class="carousel-container flex flex-col lg:flex-row items-center gap-8 p-4">
+        <div class="carousel-container flex flex-col lg:flex-row items-center gap-8 p-10">
             <div class="w-full lg:w-1/2">
-                <div class="aspect-video relative overflow-hidden rounded-lg shadow-2xl">
+                <div class="aspect-video relative overflow-hidden rounded-lg shadow-xl">
                     <img
                         src="${project.image}"
                         alt="${project.title}"
@@ -72,10 +94,10 @@ function createCarouselItem(project) {
             </div>
             <div class="w-full lg:w-1/2 project-content">
                 <h2 class="text-4xl font-bold mb-4">${project.title}</h2>
-                <p class="text-lg text-gray-600 mb-6">
+                <p class="text-lg text-gray-500 mb-6">
                     ${project.description}
                 </p>
-                <button class="btn btn-primary">View More</button>
+                <a href="${project.link}" class="btn btn-primary">View More <i class="uil uil-arrow-right"></i></a>
             </div>
         </div>
     `;
