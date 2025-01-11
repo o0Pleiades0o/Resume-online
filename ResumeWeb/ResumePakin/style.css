@@ -1,0 +1,181 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Header */
+.sticky-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+}
+
+.header-hidden {
+    transform: translateY(-100%);
+}
+
+body {
+    padding-top: 64px;
+}
+
+.navbar-scrolled {
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Skills section icon styling */
+.card-body svg {
+    width: 48px;
+    height: 48px;
+    transition: all 0.3s ease;
+    fill: currentColor;
+}
+
+/* Hover effects for specific icons */
+#html:hover {
+    fill: #E34F26;
+}
+
+#css:hover {
+    fill: #1572B6;
+}
+
+#javascript:hover {
+    fill: #F7DF1E;
+}
+
+#react:hover {
+    fill: #61DAFB;
+}
+
+#flutter:hover {
+    fill: #02569B;
+}
+
+#swift:hover {
+    fill: #FA7343;
+}
+
+#python:hover {
+    fill: #3776AB;
+}
+
+#jupyter:hover {
+    fill: #F37626;
+}
+
+#sql:hover {
+    fill: #4479A1;
+}
+
+#firebase:hover {
+    fill: #FFCA28;
+}
+
+#mongodb:hover {
+    fill: #47A248;
+}
+
+#bootstrap:hover {
+    fill: #7952B3;
+}
+
+#tailwind-css:hover {
+    fill: #06B6D4;
+}
+
+#github:hover {
+    fill: #181717;
+}
+
+/* Add hover animation */
+.card-body svg:hover {
+    transform: scale(1.2);
+}
+
+/* Ensure consistent spacing */
+.card-body .col-span-2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+}
+
+/* Text style under icons */
+.card-body p {
+    margin-top: 0.5rem;
+    font-weight: 500;
+}
+
+/* Education */
+#School {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+}
+
+/* Portfolio */
+.carousel-container {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.carousel-container.active {
+    opacity: 1;
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@media (max-width: 1024px) {
+    .project-content {
+        text-align: center;
+    }
+}
+
+.nav-dots button.active {
+    background-color: #570DF8;
+}
+
+/* scrollToTop Button */
+#scrollToTop {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 99;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+#scrollToTop.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+#scrollToTop:hover {
+    transform: translateY(-5px);
+}
+
+@media (max-width: 640px) {
+    #scrollToTop {
+        bottom: 20px;
+        right: 20px;
+    }
+}
